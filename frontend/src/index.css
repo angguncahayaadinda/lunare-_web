@@ -1,0 +1,686 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: #F8F5F2;
+  color: #3B2F4A;
+}
+
+/* ===== REACT CALENDAR BASE ===== */
+
+.react-calendar {
+  width: 100% !important;
+  border: none !important;
+  font-family: inherit;
+  background: transparent !important;
+}
+
+.react-calendar__navigation {
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation button {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  color: #B57EDC;
+  font-weight: bold;
+}
+
+.react-calendar__navigation button:hover {
+  background: #fce7f3 !important;
+  border-radius: 12px;
+}
+
+.react-calendar__tile {
+  border-radius: 16px;
+  padding: 14px 0;
+  transition: all 0.2s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.react-calendar__tile:hover {
+  background: #F8D7E8 !important;
+}
+
+.react-calendar__tile--active {
+  background: #E8B4D3 !important;
+  color: white !important;
+}
+
+.react-calendar__month-view__days__day--weekend {
+  color: #d66ba0;
+}
+
+.react-calendar__tile--now {
+  background: #fce7f3 !important;
+  color: #B57EDC !important;
+  font-weight: bold;
+}
+
+/* ===== PERIOD DAY HIGHLIGHT ===== */
+
+.period-day {
+  background: #f9a8d4 !important;
+  color: white !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(249, 168, 212, 0.4);
+}
+
+.period-day:hover {
+  background: #f472b6 !important;
+}
+
+/* ===== FERTILE WINDOW HIGHLIGHT ===== */
+
+.fertile-day {
+  background: #bbf7d0 !important;
+  color: #166534 !important;
+  font-weight: 600;
+}
+
+.fertile-day:hover {
+  background: #86efac !important;
+}
+
+/* ===== OVULATION DAY HIGHLIGHT ===== */
+
+.ovulation-day {
+  background: #93c5fd !important;
+  color: white !important;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(147, 197, 253, 0.5);
+}
+
+.ovulation-day:hover {
+  background: #60a5fa !important;
+}
+
+/* ===== PREDICTED PERIOD HIGHLIGHT ===== */
+
+.predicted-day {
+  background: #ede9fe !important;
+  color: #7c3aed !important;
+  border: 2px dashed #c4b5fd !important;
+  font-weight: 600;
+}
+
+.predicted-day:hover {
+  background: #ddd6fe !important;
+}
+
+/* ===== COMBINED STATES ===== */
+
+.period-day.react-calendar__tile--now {
+  background: #ec4899 !important;
+  color: white !important;
+}
+
+.fertile-day.react-calendar__tile--now {
+  background: #4ade80 !important;
+  color: white !important;
+}
+
+/* ===== SPINNER ===== */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* ===== SCROLLBAR STYLING ===== */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E8B4D3;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B57EDC;
+}
+
+/* ===== PDF REPORT STYLING ===== */
+
+.pdf-report-wrapper {
+  max-width: 794px;
+  margin: 0 auto 32px;
+  background-color: #ffffff;
+  border: 1px solid #F3E8FF;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(181, 126, 220, 0.1);
+}
+
+.pdf-container {
+  font-family: 'Poppins', sans-serif;
+  color: #2D2536;
+  background-color: #ffffff;
+  padding: 40px 44px;
+}
+
+/* ── Document Header ── */
+.pdf-doc-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.pdf-doc-brand {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: #C084FC;
+  margin: 0 0 10px 0;
+}
+
+.pdf-doc-title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #3B2F4A;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.pdf-doc-date {
+  font-size: 12px;
+  color: #9B8DA8;
+  margin: 0 0 24px 0;
+}
+
+.pdf-doc-separator {
+  height: 2px;
+  background: linear-gradient(90deg, rgba(249, 168, 212, 0), #F9A8D4 20%, #C084FC 50%, #F9A8D4 80%, rgba(249, 168, 212, 0));
+  border-radius: 2px;
+}
+
+/* ── Sections ── */
+.pdf-section {
+  margin-bottom: 36px;
+}
+
+.pdf-section-last {
+  margin-bottom: 28px;
+}
+
+.pdf-section-heading {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3B2F4A;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 18px 0;
+  padding-left: 14px;
+  border-left: 4px solid #C084FC;
+  line-height: 1.4;
+}
+
+/* ── Profile Card ── */
+.pdf-profile-card {
+  background: linear-gradient(135deg, #FDF2F8 0%, #F5F3FF 100%);
+  border: 1px solid #F3E8FF;
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(181, 126, 220, 0.08);
+}
+
+.pdf-profile-left {
+  flex-shrink: 0;
+}
+
+.pdf-profile-right {
+  flex: 1;
+  min-width: 0;
+}
+
+.pdf-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(181, 126, 220, 0.22);
+}
+
+.pdf-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.pdf-avatar-initial {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F9A8D4, #C084FC);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44px;
+  font-weight: 700;
+  color: #ffffff;
+  flex-shrink: 0;
+  border: 4px solid #ffffff;
+  box-shadow: 0 6px 20px rgba(181, 126, 220, 0.22);
+}
+
+.pdf-profile-identity {
+  margin-bottom: 20px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(243, 232, 255, 0.8);
+}
+
+.pdf-profile-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3B2F4A;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+}
+
+.pdf-profile-username {
+  font-size: 14px;
+  font-weight: 600;
+  color: #D946EF;
+  margin: 0 0 4px 0;
+}
+
+.pdf-profile-email {
+  font-size: 13px;
+  color: #7C6F8A;
+  margin: 0;
+}
+
+.pdf-profile-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px 24px;
+  margin: 0;
+}
+
+.pdf-profile-detail-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pdf-profile-detail-row dt {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9B8DA8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0;
+}
+
+.pdf-profile-detail-row dd {
+  font-size: 15px;
+  font-weight: 600;
+  color: #3B2F4A;
+  margin: 0;
+}
+
+/* ── Stat Cards ── */
+.pdf-stat-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.pdf-stat-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.pdf-stat-grid-mood {
+  grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 20px;
+}
+
+.pdf-stat-card {
+  background-color: #ffffff;
+  border: 1px solid #F3E8FF;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(181, 126, 220, 0.06);
+}
+
+.pdf-stat-card-accent {
+  background: linear-gradient(135deg, #FDF2F8 0%, #FAF5FF 100%);
+}
+
+.pdf-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9B8DA8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 10px 0;
+}
+
+.pdf-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: #3B2F4A;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pdf-stat-value-sm {
+  font-size: 15px;
+  font-weight: 700;
+  color: #3B2F4A;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.pdf-stat-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: #9B8DA8;
+}
+
+/* ── Mood Distribution ── */
+.pdf-mood-distribution {
+  background-color: #ffffff;
+  border: 1px solid #F3E8FF;
+  border-radius: 16px;
+  padding: 22px 24px;
+  box-shadow: 0 2px 12px rgba(181, 126, 220, 0.06);
+}
+
+.pdf-mood-distribution-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9B8DA8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 18px 0;
+}
+
+.pdf-mood-distribution-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pdf-mood-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  gap: 12px;
+}
+
+.pdf-mood-item-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3B2F4A;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pdf-mood-emoji {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.pdf-mood-item-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9B8DA8;
+  white-space: nowrap;
+}
+
+.pdf-mood-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: #F3E8FF;
+  border-radius: 6px;
+}
+
+.pdf-mood-bar-fill {
+  height: 100%;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #F9A8D4, #C084FC);
+  min-width: 4px;
+}
+
+/* ── BMI Badge ── */
+.pdf-bmi-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.pdf-bmi-badge-lg {
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.pdf-bmi-badge-underweight {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.pdf-bmi-badge-normal {
+  background-color: #D1FAE5;
+  color: #065F46;
+}
+
+.pdf-bmi-badge-overweight {
+  background-color: #FED7AA;
+  color: #9A3412;
+}
+
+.pdf-bmi-badge-obese {
+  background-color: #FECACA;
+  color: #991B1B;
+}
+
+/* ── Health Summary ── */
+.pdf-health-summary {
+  background: linear-gradient(135deg, #FDF2F8 0%, #F5F3FF 100%);
+  border: 2px solid #E9D5FF;
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 6px 24px rgba(181, 126, 220, 0.12);
+}
+
+.pdf-health-summary-main {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(243, 232, 255, 0.9);
+}
+
+.pdf-health-bmi-large {
+  font-size: 48px;
+  font-weight: 700;
+  color: #3B2F4A;
+  line-height: 1;
+  margin: 0;
+}
+
+.pdf-health-category-block {
+  text-align: right;
+}
+
+.pdf-health-note-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #9B8DA8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin: 0 0 8px 0;
+}
+
+.pdf-health-note {
+  font-size: 14px;
+  color: #5B4F6A;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* ── Tips Card ── */
+.pdf-tips-card {
+  background-color: #ffffff;
+  border: 1px solid #F3E8FF;
+  border-radius: 16px;
+  padding: 24px 28px;
+  box-shadow: 0 2px 12px rgba(181, 126, 220, 0.06);
+}
+
+.pdf-tips-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pdf-tips-list-item {
+  position: relative;
+  font-size: 13px;
+  color: #5B4F6A;
+  line-height: 1.75;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.pdf-tips-list-item:last-child {
+  margin-bottom: 0;
+}
+
+.pdf-tips-list-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F9A8D4, #C084FC);
+}
+
+/* ── Footer ── */
+.pdf-footer {
+  text-align: center;
+  padding-top: 28px;
+  margin-top: 8px;
+  border-top: 1px solid #F3E8FF;
+}
+
+.pdf-footer-text {
+  font-size: 10px;
+  color: #B4A8C4;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* ── No Data ── */
+.pdf-no-data {
+  font-size: 13px;
+  color: #B4A8C4;
+  font-style: italic;
+  margin: 0;
+  padding: 4px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 720px) {
+  .pdf-container {
+    padding: 28px 24px;
+  }
+
+  .pdf-stat-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pdf-profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .pdf-profile-identity {
+    text-align: center;
+  }
+
+  .pdf-profile-details {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .pdf-profile-detail-row {
+    align-items: center;
+  }
+
+  .pdf-health-summary-main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pdf-health-category-block {
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .pdf-doc-title {
+    font-size: 22px;
+  }
+
+  .pdf-stat-grid-4,
+  .pdf-stat-grid-mood {
+    grid-template-columns: 1fr;
+  }
+
+  .pdf-avatar,
+  .pdf-avatar-initial {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pdf-avatar-initial {
+    font-size: 36px;
+  }
+}
+
+/* ===== CUSTOM ALERT MODAL ANIMATION ===== */
+
+@keyframes alertSlideIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
