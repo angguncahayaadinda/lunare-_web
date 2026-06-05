@@ -32,27 +32,30 @@ export const generatePDFReport = async () => {
     useCORS: true,
     backgroundColor: "#ffffff",
     logging: false,
+    imageTimeout: 15000,
+    allowTaint: true,
   });
 
   const pdf = new jsPDF("p", "mm", "a4");
   const pageWidth = pdf.internal.pageSize.getWidth();
   const pageHeight = pdf.internal.pageSize.getHeight();
-
-  const imgWidth = pageWidth;
-  const imgHeight = (canvas.height * imgWidth) / canvas.width;
+  const margin = 10;
+  const pdfWidth = pageWidth - margin * 2;
+  const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
+  const pageHeightWithMargin = pageHeight - margin * 2;
   const imgData = canvas.toDataURL("image/png");
 
-  let heightLeft = imgHeight;
+  let heightLeft = pdfHeight;
   let position = 0;
 
-  pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-  heightLeft -= pageHeight;
+  pdf.addImage(imgData, "PNG", margin, margin, pdfWidth, pdfHeight);
+  heightLeft -= pageHeightWithMargin;
 
   while (heightLeft > 0) {
-    position = heightLeft - imgHeight;
+    position -= pageHeightWithMargin;
     pdf.addPage();
-    pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-    heightLeft -= pageHeight;
+    pdf.addImage(imgData, "PNG", margin, position + margin, pdfWidth, pdfHeight);
+    heightLeft -= pageHeightWithMargin;
   }
 
   const totalPages = pdf.internal.getNumberOfPages();
@@ -60,7 +63,7 @@ export const generatePDFReport = async () => {
     pdf.setPage(i);
     pdf.setFontSize(8);
     pdf.setFont("helvetica", "normal");
-    pdf.setTextColor(180, 175, 190);
+    pdf.setTextColor(120, 113, 146);
     pdf.text(`Halaman ${i} dari ${totalPages}`, pageWidth / 2, pageHeight - 8, {
       align: "center",
     });
