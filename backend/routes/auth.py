@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 import os
 import uuid
 import base64
@@ -40,6 +41,17 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             detail="Email already exists"
         )
 
+    existing_username = db.query(models.User).filter(
+        models.User.username == user.username
+    ).first()
+
+    if existing_username:
+
+        raise HTTPException(
+            status_code=400,
+            detail="Username already exists"
+        )
+
     hashed_password = hash_password(user.password)
 
     new_user = models.User(
@@ -48,9 +60,16 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         password=hashed_password
     )
 
-    db.add(new_user)
-    db.commit()
-    db.refresh(new_user)
+    try:
+        db.add(new_user)
+        db.commit()
+        db.refresh(new_user)
+    except IntegrityError:
+        db.rollback()
+        raise HTTPException(
+            status_code=400,
+            detail="Username or email already exists"
+        )
 
     return {
         "message": "User registered successfully"
@@ -216,3 +235,4 @@ def delete_photo(
     return {
         "message": "Profile picture deleted successfully"
     }
+
