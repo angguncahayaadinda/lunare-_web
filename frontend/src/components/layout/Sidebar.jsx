@@ -60,7 +60,7 @@ function Sidebar({ activeSection, setActiveSection, isOpen, setIsOpen }) {
               onClick={() => handleLinkClick(item.id)}
               className={`w-full rounded-2xl p-4 flex items-center gap-3 font-semibold transition-all duration-200 ${
                 activeSection === item.id
-                  ? "bg-white/90 backdrop-blur-md text-pink-700 shadow-sm"
+                  ? "bg-white/60 backdrop-blur-md text-pink-700 shadow-sm"
                   : "text-[#312E40] hover:bg-white/30 hover:text-pink-500"
               }`}
             >
