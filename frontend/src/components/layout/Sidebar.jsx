@@ -30,8 +30,8 @@ function Sidebar({ activeSection, setActiveSection, isOpen, setIsOpen }) {
               <FaMoon className="text-pink-400 text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white">Lunare</h1>
-              <p className="text-white/80 text-sm">Your wellness companion</p>
+              <h1 className="text-3xl font-bold text-[#1F1635]">Lunare</h1>
+              <p className="text-pink-700 text-sm">Your wellness companion</p>
             </div>
           </div>
 
@@ -60,8 +60,8 @@ function Sidebar({ activeSection, setActiveSection, isOpen, setIsOpen }) {
               onClick={() => handleLinkClick(item.id)}
               className={`w-full rounded-2xl p-4 flex items-center gap-3 font-semibold transition-all duration-200 ${
                 activeSection === item.id
-                  ? "bg-white/40 backdrop-blur-md text-white shadow-sm"
-                  : "text-white/80 hover:bg-white/20"
+                  ? "bg-white/90 backdrop-blur-md text-pink-700 shadow-sm"
+                  : "text-[#312E40] hover:bg-white/30 hover:text-pink-500"
               }`}
             >
               {item.icon}
