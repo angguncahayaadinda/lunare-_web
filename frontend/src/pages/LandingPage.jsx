@@ -160,9 +160,11 @@ function LandingPage() {
                 Unduh rangkuman riwayat siklus menstruasi dan catatan gejala harian dalam format dokumen PDF secara instan untuk konsultasi ke dokter atau arsip pribadi.
               </p>
             </div>
-            <div className="h-40 bg-gradient-to-br from-pink-50 to-indigo-50 rounded-2xl flex items-center justify-center p-4 mt-4">
-              <span className="text-4xl text-indigo-400 select-none">📊📄</span>
-            </div>
+            <img
+              src="/lunare_report.jpeg"
+              alt="Health Report Feature"
+              className="w-full h-40 object-cover rounded-2xl mt-4"
+            />
           </div>
 
         </div>
