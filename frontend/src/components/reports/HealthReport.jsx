@@ -9,6 +9,7 @@ function HealthReport({
   periods,
   prediction,
   avgCycleLength,
+  symptoms,
   showAlert,
 }) {
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
@@ -56,6 +57,7 @@ function HealthReport({
         prediction={prediction}
         avgCycleLength={avgCycleLength}
         moods={moodEntries}
+        symptoms={symptoms}
       />
     </>
   );

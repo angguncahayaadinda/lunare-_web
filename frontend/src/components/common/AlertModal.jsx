@@ -66,7 +66,16 @@ function AlertModal({ isOpen, type, title, message, onConfirm, onClose }) {
                 Batal
               </button>
               <button
-                onClick={onConfirm}
+                onClick={async () => {
+                  if (onConfirm) {
+                    try {
+                      await onConfirm();
+                    } catch (error) {
+                      console.error(error);
+                    }
+                  }
+                  onClose();
+                }}
                 className="px-5 py-2.5 rounded-xl text-sm font-semibold text-white shadow-md hover:scale-[1.03] active:scale-[0.97] transition-all duration-200"
                 style={{ background: "linear-gradient(135deg, #F472B6, #A78BFA)" }}
               >
