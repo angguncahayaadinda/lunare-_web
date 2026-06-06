@@ -162,18 +162,23 @@ function ReportPreview({ profile, periods, prediction, avgCycleLength, moods, sy
           <div className="pdf-analysis-bars">
             {Object.entries(moodSummary.moodCounts)
               .sort(([, a], [, b]) => b - a)
-              .map(([mood, count]) => (
-                <div key={mood} className="pdf-analysis-row">
-                  <span className="pdf-analysis-label">{formatMoodLabel(mood)}</span>
-                  <div className="pdf-analysis-track">
-                    <div
-                      className="pdf-analysis-fill"
-                      style={{ width: `${Math.round((count / Math.max(...Object.values(moodSummary.moodCounts), 1)) * 100)}%` }}
-                    />
+              .map(([mood, count]) => {
+                const percent = moodSummary.totalMoodLogs
+                  ? Math.round((count / moodSummary.totalMoodLogs) * 100)
+                  : 0;
+                return (
+                  <div key={mood} className="pdf-analysis-row">
+                    <span className="pdf-analysis-label">{formatMoodLabel(mood)}</span>
+                    <div className="pdf-analysis-track">
+                      <div
+                        className="pdf-analysis-fill"
+                        style={{ width: `${percent}%` }}
+                      />
+                    </div>
+                    <span className="pdf-analysis-count">{percent}%</span>
                   </div>
-                  <span className="pdf-analysis-count">{Math.round((count / moodSummary.totalMoodLogs) * 100)}%</span>
-                </div>
-              ))}
+                );
+              })}
           </div>
         </section>
 
