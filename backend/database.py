@@ -22,9 +22,22 @@ if DATABASE_URL:
         DATABASE_URL = DATABASE_URL.replace(f":[{pwd}]@", f":{pwd}@")
 
 if DATABASE_URL and DATABASE_URL.startswith("postgresql"):
-    engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+    # Supabase session mode has a max pool_size of 15
+    # Use very small pool to avoid hitting connection limits
+    engine = create_engine(
+        DATABASE_URL, 
+        pool_pre_ping=True,
+        pool_size=2,
+        max_overflow=2,
+        pool_recycle=1800,  # Recycle connections every 30 mins
+        connect_args={"connect_timeout": 5}
+    )
 else:
-    engine = create_engine(DATABASE_URL)
+    engine = create_engine(
+        DATABASE_URL,
+        pool_size=2,
+        max_overflow=2
+    )
 
 SessionLocal = sessionmaker(
     autocommit=False,

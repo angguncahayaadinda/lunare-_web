@@ -21,7 +21,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-models.Base.metadata.create_all(bind=engine)
+try:
+    models.Base.metadata.create_all(bind=engine)
+except Exception as e:
+    print(f"⚠️  Warning: Failed to create database tables on startup: {e}")
+    print("The app will continue, but database tables may not exist yet.")
 
 app.include_router(auth_router)
 app.include_router(period_router)
