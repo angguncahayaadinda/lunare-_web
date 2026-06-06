@@ -27,7 +27,7 @@ function Sidebar({ activeSection, setActiveSection, isOpen, setIsOpen }) {
         <div className="flex items-center justify-between gap-3 mb-12">
           <div className="flex items-center gap-3">
             <div className="bg-white p-4 rounded-full shadow-md">
-              <FaMoon className="text-pink-400 text-2xl" />
+              <FaMoon className="text-pink-500 text-2xl" />
             </div>
             <div>
               <h1 className="text-3xl font-bold text-[#1F1635]">Lunare</h1>
