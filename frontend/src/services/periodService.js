@@ -1,3 +1,12 @@
+/*
+SERVICE: periodService
+FILE: services/periodService.js
+FUNGSI:
+- Wrapper API untuk operasi periode: get, prediction, add, update, delete
+JIKA INGIN MENGUBAH:
+- Sesuaikan endpoint jika backend berubah
+=================================
+*/
 import API from "./api";
 
 export const getPeriods = async () => {

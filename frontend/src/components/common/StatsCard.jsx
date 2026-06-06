@@ -1,3 +1,14 @@
+/*
+COMPONENT: StatsCard
+FILE: components/common/StatsCard.jsx
+FUNGSI:
+- Menampilkan kartu statistik (judul, nilai, ikon)
+- Digunakan di DashboardOverview dan ReportPreview
+
+JIKA INGIN MENGUBAH:
+- Sesuaikan kelas Tailwind di elemen root atau isi kartu
+=================================
+*/
 function StatsCard({ title, value, color, icon }) {
 
   return (

@@ -1,3 +1,13 @@
+/*
+COMPONENT: ReportPreview
+FILE: components/reports/ReportPreview.jsx
+FUNGSI:
+- Menyusun tampilan laporan (PDF preview) yang akan diekspor
+- Menggunakan util reportFormatter untuk kalkulasi dan format data
+DIGUNAKAN OLEH:
+components/reports/HealthReport.jsx
+=================================
+*/
 import dayjs from "dayjs";
 import {
   formatReportDateTime,

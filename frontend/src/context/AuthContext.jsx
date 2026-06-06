@@ -1,3 +1,15 @@
+/*
+CONTEXT: AuthContext
+FILE: context/AuthContext.jsx
+FUNGSI:
+- Menangani autentikasi client-side: menyimpan token, mengambil profil, login/register/logout
+- Menyediakan hook `useAuth` untuk komponen lain
+DIGUNAKAN OLEH:
+App.jsx, halaman auth, dan komponen yang butuh data user
+JIKA INGIN MENGUBAH:
+- Perhatikan handling token di localStorage dan interceptor API
+=================================
+*/
 import { createContext, useContext, useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import * as authService from "../services/authService";

@@ -1,3 +1,15 @@
+/*
+COMPONENT: PeriodHistory
+FILE: components/periods/PeriodHistory.jsx
+FUNGSI:
+- Menampilkan daftar periode yang sudah dicatat dan menyediakan edit/delete
+- Mendukung mode edit inline untuk setiap entri
+DIGUNAKAN OLEH:
+components/periods/CycleTracker.jsx
+JIKA INGIN MENGUBAH:
+- Mode edit: lihat bagian EDIT MODE dan VIEW MODE di JSX
+=================================
+*/
 import { useState } from "react";
 import { FaCalendarAlt, FaStar, FaPen, FaTrash, FaCheck, FaTimes } from "react-icons/fa";
 import dayjs from "dayjs";

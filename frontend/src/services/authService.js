@@ -1,3 +1,12 @@
+/*
+SERVICE: authService
+FILE: services/authService.js
+FUNGSI:
+- Menyediakan pemanggilan API terkait autentikasi dan profile (login, register, profile CRUD, upload photo)
+JIKA INGIN MENGUBAH:
+- Endpoint menyesuaikan route backend (mis. /login, /register)
+=================================
+*/
 import API from "./api";
 
 export const login = async (email, password) => {

@@ -1,3 +1,10 @@
+/*
+SERVICE: symptomService
+FILE: services/symptomService.js
+FUNGSI:
+- API wrapper untuk mengelola catatan gejala: list, get by date, save
+=================================
+*/
 import API from "./api";
 
 export const getSymptoms = async () => {

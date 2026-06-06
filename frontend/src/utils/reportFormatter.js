@@ -1,3 +1,11 @@
+/*
+UTIL: reportFormatter
+FILE: utils/reportFormatter.js
+FUNGSI:
+- Fungsi util untuk format tanggal, kalkulasi BMI, mood/symptom summaries, dan data report
+- Digunakan oleh ReportPreview dan HealthReport
+=================================
+*/
 import dayjs from "dayjs";
 
 export const formatReportDate = (date) => {

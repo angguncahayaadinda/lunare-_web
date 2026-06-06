@@ -1,3 +1,15 @@
+/*
+COMPONENT: AlertModal
+FILE: components/common/AlertModal.jsx
+FUNGSI:
+- Menampilkan modal alert / konfirmasi yang digunakan di banyak halaman
+- Tipe: info, error, confirm
+DIGUNAKAN OLEH:
+Dashboard, Profile, PeriodHistory, dll.
+JIKA INGIN MENGUBAH:
+- Ubah teks tombol dan styling pada bagian Modal Actions
+=================================
+*/
 import { FaTimes, FaExclamationTriangle, FaInfoCircle } from "react-icons/fa";
 
 function AlertModal({ isOpen, type, title, message, onConfirm, onClose }) {

@@ -1,3 +1,15 @@
+/*
+FILE: Profile.jsx
+FUNGSI:
+- Halaman profile pengguna untuk melihat dan mengubah data personal
+- Menangani upload foto profil (dengan kompresi), update profil, dan penghapusan foto
+DIGUNAKAN OLEH:
+Dashboard.jsx -> Profile.jsx
+JIKA INGIN MENGUBAH:
+- Upload foto: lihat compressImage() dan handleFileChange()
+- Update profil: lihat handleSaveProfile()
+=================================
+*/
 import { useState, useEffect, useRef } from "react";
 import { useAuth } from "../context/AuthContext";
 import * as authService from "../services/authService";

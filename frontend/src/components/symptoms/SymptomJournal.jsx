@@ -1,3 +1,15 @@
+/*
+COMPONENT: SymptomJournal
+FILE: components/symptoms/SymptomJournal.jsx
+FUNGSI:
+- Menyediakan UI untuk mencatat gejala fisik dan mental per-hari
+- Mengambil data gejala per tanggal dan menyimpan perubahan
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx (section symptoms)
+JIKA INGIN MENGUBAH:
+- Kategori gejala ditentukan di PHYSICAL_SYMPTOMS / MENTAL_SYMPTOMS
+=================================
+*/
 import React, { useState, useEffect } from "react";
 import { getSymptomByDate } from "../../services/symptomService";
 import { Calendar, ChevronLeft, ChevronRight, Save, Smile, RefreshCw } from "lucide-react";

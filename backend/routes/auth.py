@@ -1,3 +1,15 @@
+"""
+FILE: auth.py
+
+FUNGSI:
+- Menyediakan endpoint autentikasi: register, login, profile CRUD, upload / delete photo
+
+DIGUNAKAN OLEH:
+- Frontend auth flows (Login/Register/Profile)
+
+PENTING: Hanya menambahkan docstring dan komentar; tidak mengubah logika endpoint.
+"""
+
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 import os
@@ -13,6 +25,7 @@ from utils.hashing import hash_password, verify_password
 from utils.jwt_handler import create_access_token
 
 router = APIRouter()
+
 
 # DATABASE SESSION
 def get_db():
@@ -89,7 +102,7 @@ def login(user: UserLogin, db: Session = Depends(get_db)):
     }
 
 
-# GET PROFILE
+# Endpoint: GET PROFILE
 @router.get("/profile", response_model=UserProfileResponse)
 def get_profile(
     db: Session = Depends(get_db),
@@ -101,7 +114,7 @@ def get_profile(
     return db_user
 
 
-# UPDATE PROFILE
+# Endpoint: UPDATE PROFILE
 @router.put("/profile")
 def update_profile(
     profile_data: UserProfileUpdate,
@@ -146,7 +159,7 @@ def update_profile(
     }
 
 
-# UPLOAD PROFILE PHOTO
+# Endpoint: UPLOAD PROFILE PHOTO
 @router.post("/profile/upload-photo")
 async def upload_photo(
     file: UploadFile = File(...),
@@ -199,7 +212,7 @@ async def upload_photo(
     }
 
 
-# DELETE PROFILE PHOTO
+# Endpoint: DELETE PROFILE PHOTO
 @router.delete("/profile/delete-photo")
 def delete_photo(
     db: Session = Depends(get_db),

@@ -1,3 +1,14 @@
+"""
+FILE: periods.py
+
+FUNGSI:
+- Endpoint untuk CRUD data periode dan endpoint prediksi siklus
+
+DIGUNAKAN OLEH:
+- Frontend period tracker, prediction APIs
+
+"""
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from datetime import date, timedelta
@@ -20,7 +31,7 @@ def get_db():
         db.close()
 
 
-# CREATE PERIOD
+# Endpoint: CREATE PERIOD
 @router.post("/periods")
 def create_period(
     period: PeriodCreate,
@@ -51,7 +62,7 @@ def create_period(
     }
 
 
-# GET ALL PERIODS (user-specific, sorted newest first)
+# Endpoint: GET ALL PERIODS (user-specific, sorted newest first)
 @router.get("/periods", response_model=List[PeriodResponse])
 def get_periods(
     db: Session = Depends(get_db),
@@ -67,7 +78,7 @@ def get_periods(
     return periods
 
 
-# UPDATE PERIOD
+# Endpoint: UPDATE PERIOD
 @router.put("/periods/{id}")
 def update_period(
     id: int,
@@ -104,7 +115,7 @@ def update_period(
     }
 
 
-# DELETE PERIOD
+# Endpoint: DELETE PERIOD
 @router.delete("/periods/{id}")
 def delete_period(
     id: int,
@@ -131,7 +142,7 @@ def delete_period(
     }
 
 
-# PREDICTION — calculates cycle info from user's period history
+# Endpoint: PREDICTION — calculates cycle info from user's period history
 @router.get("/periods/prediction")
 def get_prediction(
     db: Session = Depends(get_db),

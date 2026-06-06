@@ -1,3 +1,15 @@
+/*
+FILE: DashboardOverview.jsx
+COMPONENT: DashboardOverview
+FUNGSI:
+- Ringkasan dashboard utama: menampilkan phase card, kalender, statistik singkat, dan insights
+- Memformat data yang diterima dari hook `usePeriods` dan `useSymptoms`
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx -> DashboardOverview.jsx
+JIKA INGIN MENGUBAH:
+- Bagian header, kalender, atau cards: cari komentar section di bawah
+=================================
+*/
 import { FaCalendarAlt, FaHeart, FaSmile } from "react-icons/fa";
 import PhaseCard from "./PhaseCard";
 import CycleCalendar from "../calendar/CycleCalendar";
@@ -34,7 +46,7 @@ function DashboardOverview({
 
   return (
     <>
-      {/* HEADER */}
+      {/* ==================== HEADER ==================== */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-5 mb-8">
         <div>
           <p className="text-gray-500 mb-1">Welcome back 🌸</p>
@@ -47,7 +59,7 @@ function DashboardOverview({
         )}
       </div>
 
-      {/* PHASE CARD & CALENDAR */}
+      {/* ==================== PHASE CARD & CALENDAR ==================== */}
       <div className="bg-gradient-to-r from-pink-50 to-purple-50 p-8 rounded-[32px] shadow-md mb-8">
         <PhaseCard currentPhase={currentPhase} phaseInfo={phaseInfo} />
         <CycleCalendar
@@ -58,7 +70,7 @@ function DashboardOverview({
         />
       </div>
 
-      {/* STATS */}
+      {/* ==================== STATS ==================== */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
         <StatsCard
           title="Next Period"
@@ -80,7 +92,7 @@ function DashboardOverview({
         />
       </div>
 
-      {/* ARTICLES */}
+      {/* ==================== ARTICLES / INSIGHTS ==================== */}
       <Insights />
     </>
   );

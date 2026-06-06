@@ -1,3 +1,15 @@
+/*
+COMPONENT: Sidebar
+FILE: components/layout/Sidebar.jsx
+FUNGSI:
+- Navigasi samping aplikasi yang mengontrol section aktif di Dashboard
+- Menyediakan tombol logout yang memanggil AuthContext.logout
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx
+JIKA INGIN MENGUBAH:
+- Tambah/ubah item menu di array yang dipetakan di dalam file
+=================================
+*/
 import {
   FaMoon,
   FaCalendarAlt,

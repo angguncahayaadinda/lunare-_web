@@ -1,3 +1,13 @@
+/*
+COMPONENT: CycleCalendar
+FILE: components/calendar/CycleCalendar.jsx
+FUNGSI:
+- Menampilkan kalender interaktif dengan marking untuk period, fertile, ovulation, predicted
+- Menggunakan react-calendar dan helper createTileClassName dari utils/calendarHelpers
+DIGUNAKAN OLEH:
+components/dashboard/DashboardOverview.jsx
+=================================
+*/
 import { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";

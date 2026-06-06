@@ -1,3 +1,15 @@
+/*
+FILE: Login.jsx
+FUNGSI:
+- Halaman login untuk pengguna yang sudah terdaftar
+- Menghubungkan form ke AuthContext untuk mendapatkan token
+DIGUNAKAN OLEH:
+App.jsx -> Login.jsx
+JIKA INGIN MENGUBAH:
+- Masukan email/password: lihat form input dan handleLogin()
+- Tampilan feedback error: lihat state alertModal
+=================================
+*/
 import { Link } from "react-router-dom";
 import { FaMoon } from "react-icons/fa";
 import { useState } from "react";

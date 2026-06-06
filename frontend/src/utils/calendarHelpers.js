@@ -1,3 +1,11 @@
+/*
+UTIL: calendarHelpers
+FILE: utils/calendarHelpers.js
+FUNGSI:
+- Menyediakan helpers untuk phase info dan penentuan class pada tanggal kalender
+- Digunakan oleh hooks/usePeriods, komponen CycleCalendar, PhaseCard
+=================================
+*/
 import dayjs from "dayjs";
 
 export const phaseColors = {

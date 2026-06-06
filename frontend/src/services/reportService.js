@@ -1,3 +1,13 @@
+/*
+SERVICE: reportService
+FILE: services/reportService.js
+FUNGSI:
+- Meng-generate PDF untuk laporan kesehatan menggunakan html2canvas + jsPDF
+- Menyediakan fungsi `generatePDFReport()` yang dipanggil dari HealthReport
+JIKA INGIN MENGUBAH:
+- Sesuaikan layout di ReportPreview.jsx atau parameter pdf (margin, ukuran)
+=================================
+*/
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import dayjs from "dayjs";

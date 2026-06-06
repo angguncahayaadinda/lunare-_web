@@ -1,3 +1,15 @@
+/*
+FILE: Register.jsx
+FUNGSI:
+- Halaman pendaftaran user baru
+- Melakukan validasi sederhana sebelum memanggil backend register
+DIGUNAKAN OLEH:
+App.jsx -> Register.jsx
+JIKA INGIN MENGUBAH:
+- Ubah field atau logika validasi: lihat handleRegister()
+- Edit alur sukses: lihat closeAlert() dan navigation
+=================================
+*/
 import { Link, useNavigate } from "react-router-dom";
 import { FaMoon } from "react-icons/fa";
 import { useState } from "react";

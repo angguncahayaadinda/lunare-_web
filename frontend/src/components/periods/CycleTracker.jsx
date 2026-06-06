@@ -1,3 +1,12 @@
+/*
+COMPONENT: CycleTracker
+FILE: components/periods/CycleTracker.jsx
+FUNGSI:
+- Menyatukan form penambahan periode dan daftar riwayat periode
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx (section tracker)
+=================================
+*/
 import AddPeriodForm from "./AddPeriodForm";
 import PeriodHistory from "./PeriodHistory";
 

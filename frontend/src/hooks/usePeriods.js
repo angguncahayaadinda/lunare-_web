@@ -1,3 +1,14 @@
+/*
+HOOK: usePeriods
+FILE: hooks/usePeriods.js
+FUNGSI:
+- Mengambil data periode dan prediksi dari backend
+- Menyediakan helper dan operasi CRUD (add/update/delete) untuk periode
+- Menghasilkan data turunan seperti currentPhase, isPeriodDay, dll.
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx dan komponen terkait
+=================================
+*/
 import { useEffect, useState, useCallback } from "react";
 import dayjs from "dayjs";
 import * as periodService from "../services/periodService";

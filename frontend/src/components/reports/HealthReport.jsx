@@ -1,3 +1,13 @@
+/*
+COMPONENT: HealthReport
+FILE: components/reports/HealthReport.jsx
+FUNGSI:
+- Menyediakan header laporan, tombol unduh PDF, dan memasukkan komponen preview laporan
+- Memanggil service `generatePDFReport` untuk mengekspor PDF
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx (section report)
+=================================
+*/
 import { useMemo, useState } from "react";
 import { FaDownload } from "react-icons/fa";
 import { generatePDFReport } from "../../services/reportService";

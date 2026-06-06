@@ -1,3 +1,15 @@
+/*
+FILE: LandingPage.jsx
+FUNGSI:
+- Halaman publik untuk memperkenalkan fitur aplikasi
+- Menyediakan navigasi ke login/register atau langsung ke dashboard jika sudah login
+DIGUNAKAN OLEH:
+App.jsx -> LandingPage.jsx
+JIKA INGIN MENGUBAH:
+- Bagian hero: cari komentar // HERO SECTION
+- Fitur: cari komentar // FEATURES SECTION
+=================================
+*/
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
@@ -160,9 +172,11 @@ function LandingPage() {
                 Unduh rangkuman riwayat siklus menstruasi dan catatan gejala harian dalam format dokumen PDF secara instan untuk konsultasi ke dokter atau arsip pribadi.
               </p>
             </div>
-            <div className="h-40 bg-gradient-to-br from-pink-50 to-indigo-50 rounded-2xl flex items-center justify-center p-4 mt-4">
-              <span className="text-4xl text-indigo-400 select-none">📊📄</span>
-            </div>
+            <img
+              src="/lunare_report.png"
+              alt="Health Report Feature"
+              className="w-full h-40 object-cover rounded-2xl mt-4"
+            />
           </div>
 
         </div>

@@ -1,3 +1,13 @@
+/*
+HOOK: useSymptoms
+FILE: hooks/useSymptoms.js
+FUNGSI:
+- Mengambil dan menyimpan data gejala pengguna dari backend
+- Menyediakan fungsi `saveSymptom` untuk menyimpan dan merefresh list
+DIGUNAKAN OLEH:
+pages/Dashboard.jsx dan SymptomJournal
+=================================
+*/
 import { useEffect, useState, useCallback } from "react";
 import * as symptomService from "../services/symptomService";
 

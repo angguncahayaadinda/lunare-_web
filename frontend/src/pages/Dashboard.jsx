@@ -1,3 +1,19 @@
+/*
+FILE: Dashboard.jsx
+FUNGSI:
+- Halaman dashboard utama setelah login
+- Menggabungkan sidebar, overview, tracker, report, profile, dan edukasi
+- Mengatur navigasi section internal dan modal alert
+DIGUNAKAN OLEH:
+App.jsx -> Dashboard.jsx
+JIKA INGIN MENGUBAH:
+- Sidebar navigasi: components/layout/Sidebar.jsx
+- Section ringkasan: components/dashboard/DashboardOverview.jsx
+- Section tracker: components/periods/CycleTracker.jsx
+- Section gejala: components/symptoms/SymptomJournal.jsx
+- Section laporan: components/reports/HealthReport.jsx
+=================================
+*/
 import { useState } from "react";
 import usePeriods from "../hooks/usePeriods";
 import useSymptoms from "../hooks/useSymptoms";
@@ -138,6 +154,8 @@ function Dashboard() {
         isOpen={isSidebarOpen}
         setIsOpen={setIsSidebarOpen}
       />
+
+      {/* ==================== SIDEBAR & NAVIGATION ==================== */}
       
       {/* Mobile Sidebar Overlay Backdrop */}
       {isSidebarOpen && (
@@ -148,6 +166,7 @@ function Dashboard() {
       )}
       
       <div className="flex-1 overflow-y-auto p-6 md:p-10 flex flex-col">
+        {/* ==================== MAIN CONTENT ==================== */}
         {/* Hamburger Menu Toggle Button (Visible only on mobile) */}
         <div className="lg:hidden mb-6 flex items-center">
           <button

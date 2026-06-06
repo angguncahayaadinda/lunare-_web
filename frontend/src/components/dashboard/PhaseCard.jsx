@@ -1,3 +1,14 @@
+/*
+COMPONENT: PhaseCard
+FILE: components/dashboard/PhaseCard.jsx
+FUNGSI:
+- Menampilkan fase siklus saat ini dan label risiko terkait
+DIGUNAKAN OLEH:
+components/dashboard/DashboardOverview.jsx
+JIKA INGIN MENGUBAH:
+- Styling warna diatur oleh `phaseColors` di utils/calendarHelpers.js
+=================================
+*/
 import { phaseColors, phaseRiskLabel } from "../../utils/calendarHelpers";
 
 function PhaseCard({ currentPhase, phaseInfo }) {

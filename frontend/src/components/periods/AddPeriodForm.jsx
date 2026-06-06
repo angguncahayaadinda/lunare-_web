@@ -1,3 +1,15 @@
+/*
+COMPONENT: AddPeriodForm
+FILE: components/periods/AddPeriodForm.jsx
+FUNGSI:
+- Form untuk menambah data periode (start_date, end_date, mood)
+- Melakukan validasi sederhana pada tanggal sebelum mengirim
+DIGUNAKAN OLEH:
+components/periods/CycleTracker.jsx
+JIKA INGIN MENGUBAH:
+- Validasi tambahan: lihat handleSave()
+=================================
+*/
 import { useState } from "react";
 import { FaSeedling } from "react-icons/fa";
 import dayjs from "dayjs";

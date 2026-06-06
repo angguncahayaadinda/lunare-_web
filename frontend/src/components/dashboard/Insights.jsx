@@ -1,3 +1,12 @@
+/*
+COMPONENT: Insights
+FILE: components/dashboard/Insights.jsx
+FUNGSI:
+- Menampilkan kartu insight / artikel singkat di dashboard
+DIGUNAKAN OLEH:
+components/dashboard/DashboardOverview.jsx
+=================================
+*/
 function Insights() {
   return (
     <div className="mb-8">

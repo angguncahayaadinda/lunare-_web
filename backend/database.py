@@ -1,3 +1,13 @@
+"""
+FILE: database.py
+
+FUNGSI:
+- Menginisialisasi koneksi database SQLAlchemy berdasarkan env `DATABASE_URL`
+- Menangani penyesuaian skema postgres (postgres:// -> postgresql://)
+
+PENTING: Jangan ubah konfigurasi di runtime kecuali Anda memahami efeknya pada migrasi dan engine pool.
+"""
+
 import os
 import re
 from sqlalchemy import create_engine

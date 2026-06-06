@@ -1,3 +1,14 @@
+"""
+FILE: symptoms.py
+
+FUNGSI:
+- Endpoint untuk menyimpan dan mengambil catatan gejala harian
+
+DIGUNAKAN OLEH:
+- Frontend symptom journal
+
+"""
+
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing import List, Optional
@@ -19,7 +30,7 @@ def get_db():
         db.close()
 
 
-# SAVE / UPDATE SYMPTOM (one entry per day per user)
+# Endpoint: SAVE / UPDATE SYMPTOM (one entry per day per user)
 @router.post("/symptoms", response_model=SymptomResponse)
 def save_symptom(
     symptom: SymptomCreate,

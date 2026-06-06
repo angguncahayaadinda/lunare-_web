@@ -1,3 +1,15 @@
+/*
+FILE: App.jsx
+FUNGSI:
+- Mengatur routing utama aplikasi React
+- Menentukan halaman publik dan halaman terproteksi
+- Menyediakan AuthProvider untuk state login
+DIGUNAKAN OLEH:
+frontend/src/main.jsx -> App.jsx
+JIKA INGIN MENGUBAH:
+- Tambah atau ubah rute: lihat <Routes> dan komponen ProtectedRoute/PublicRoute
+=================================
+*/
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
