@@ -152,22 +152,24 @@ def get_prediction(
 
     # Calculate average cycle length from consecutive periods
     cycle_lengths = []
+    all_cycle_diffs = []
     for i in range(1, len(periods)):
         diff = (periods[i].start_date - periods[i - 1].start_date).days
-        if 15 <= diff <= 50:  # only count reasonable cycle lengths
+        all_cycle_diffs.append(diff)
+        if 15 <= diff <= 50:  # hitung panjang siklus yang wajar
             cycle_lengths.append(diff)
 
     avg_cycle = (
         round(sum(cycle_lengths) / len(cycle_lengths))
         if cycle_lengths
-        else 28
+        else (round(sum(all_cycle_diffs) / len(all_cycle_diffs)) if all_cycle_diffs else 28)
     )
 
-    # Calculate average period duration
+    # Hitung durasi periode rata-rata
     durations = []
     for p in periods:
         dur = (p.end_date - p.start_date).days + 1
-        if 1 <= dur <= 15:
+        if dur >= 1:
             durations.append(dur)
 
     avg_duration = (
@@ -180,7 +182,7 @@ def get_prediction(
     latest = periods[-1]
     today = date.today()
 
-    # Current cycle day (days since last period started + 1)
+    # Hari siklus saat ini (hari sejak periode terakhir dimulai + 1)
     cycle_day = (today - latest.start_date).days + 1
 
     # Next period prediction

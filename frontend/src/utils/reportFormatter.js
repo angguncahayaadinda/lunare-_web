@@ -54,9 +54,15 @@ export const getRecentNotes = (symptoms, limit = 3) => {
 
 export const getHealthTips = (prediction) => {
   if (prediction?.has_data) {
-    return prediction.avg_cycle_length < 21 || prediction.avg_cycle_length > 35
-      ? "Siklus menstruasi Anda terdeteksi di luar rentang rata-rata umum (21-35 hari). Hal ini normal bagi beberapa individu, namun kami menyarankan untuk tetap berkonsultasi dengan penyedia layanan kesehatan jika pola ini terus berlanjut."
-      : "Siklus menstruasi Anda terpantau berada di rentang normal (21-35 hari). Pertahankan gaya hidup sehat, konsumsi air putih yang cukup, dan kelola stres dengan baik untuk menjaga kestabilan hormon Anda.";
+    if (prediction.avg_cycle_length < 21 || prediction.avg_cycle_length > 35) {
+      return "Siklus menstruasi Anda terdeteksi di luar rentang rata-rata umum (21-35 hari). Hal ini normal bagi beberapa individu, namun kami menyarankan untuk tetap berkonsultasi dengan penyedia layanan kesehatan jika pola ini terus berlanjut.";
+    }
+
+    if (prediction.avg_period_duration > 7) {
+      return "Durasi menstruasi Anda terpantau lebih lama dari normal (>7 hari). Silakan konsultasi dengan tenaga kesehatan karena periode yang panjang bisa menunjukkan ketidakseimbangan hormon atau kondisi medis lain.";
+    }
+
+    return "Siklus menstruasi Anda terpantau berada di rentang normal (21-35 hari) dan durasi haid Anda juga ideal. Pertahankan gaya hidup sehat, konsumsi air putih yang cukup, dan kelola stres dengan baik untuk menjaga kestabilan hormon Anda.";
   }
   return "Catat terus data menstruasi Anda untuk mendapatkan analisis siklus dan prediksi masa subur yang akurat dari Lunare.";
 };
